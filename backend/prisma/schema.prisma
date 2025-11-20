@@ -1,0 +1,53 @@
+// prisma/schema.prisma
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  name      String
+  email     String    @unique
+  password  String
+  role      String    @default("admin")
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  blogs     Blog[]
+}
+
+model Blog {
+  id          Int      @id @default(autoincrement())
+  title       String
+  content     String   @db.Text
+  description String?  @db.Text
+  slug        String   @unique
+  isPublished Boolean  @default(false)
+  tags        String[]
+  image       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  authorId    Int
+  author      User     @relation(fields: [authorId], references: [id])
+}
+
+model Message {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String
+  content     String
+  responded   Boolean  @default(false)
+  respondedAt DateTime?
+  createdAt   DateTime @default(now())
+}
+
+model RevokedToken {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  revokedAt DateTime @default(now())
+}

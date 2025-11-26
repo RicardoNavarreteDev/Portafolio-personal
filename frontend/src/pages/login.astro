@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import LoginModal from "../components/auth/LoginModal";
+---
+
+<BaseLayout title="Iniciar sesión">
+  <main class="min-h-screen relative">
+    {/* Contenido de fondo (si quieres usar el mismo bg del home) */}
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-950" />
+
+    {/* Modal de login */}
+    <LoginModal client:load />
+  </main>
+</BaseLayout>

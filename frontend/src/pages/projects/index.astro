@@ -1,0 +1,345 @@
+---
+import Layout from "../../layouts/BaseLayout.astro"; // ajusta la ruta si hace falta
+
+type TechIcon = {
+  label: string;
+  icon: string;
+};
+
+type FeaturedProject = {
+  id: string;
+  titulo: string;
+  tipo: string;
+  descripcion: string;
+  tecnologias: TechIcon[];
+  demoUrl?: string;
+  codeUrl?: string;
+};
+
+type OtherProject = {
+  id: string;
+  titulo: string;
+  tipo: string;
+  descripcion: string;
+  tecnologias: TechIcon[];
+  demoUrl?: string;
+  codeUrl?: string;
+};
+
+const FEATURED_PROJECTS: FeaturedProject[] = [
+  {
+    id: "tickets",
+    titulo: "Tickets De La Suerte",
+    tipo: "Plataforma full-stack",
+    descripcion:
+      "Sistema de venta de tickets con panel de administración, generación de órdenes, validación de tickets y gestión de ganadores.",
+    tecnologias: [
+      { label: "React", icon: "⚛️" },
+      { label: "TypeScript", icon: "🟦" },
+      { label: "NestJS", icon: "🧱" },
+      { label: "MySQL", icon: "🐬" },
+    ],
+    demoUrl: "#",
+    codeUrl: "#",
+  },
+  {
+    id: "club-interno",
+    titulo: "Panel interno Club Providencia",
+    tipo: "Herramienta interna",
+    descripcion:
+      "Módulos personalizados para reservas, pagos, reportes y automatización de tareas internas, con foco en rendimiento y seguridad.",
+    tecnologias: [
+      { label: "PHP", icon: "🐘" },
+      { label: "WordPress", icon: "📦" },
+      { label: "MySQL", icon: "🐬" },
+      { label: "jQuery", icon: "✨" },
+    ],
+    demoUrl: "#",
+    codeUrl: "#",
+  },
+  {
+    id: "landing-saas",
+    titulo: "Plataforma de reservas y clases",
+    tipo: "Web app",
+    descripcion:
+      "Aplicación web para gestionar reservas de clases y servicios, con panel de administración y experiencia optimizada para móviles.",
+    tecnologias: [
+      { label: "Astro", icon: "⭐" },
+      { label: "React", icon: "⚛️" },
+      { label: "Node.js", icon: "🟢" },
+      { label: "PostgreSQL", icon: "🐘" },
+    ],
+    demoUrl: "#",
+    codeUrl: "#",
+  },
+];
+
+const OTHER_PROJECTS: OtherProject[] = [
+  {
+    id: "portafolio",
+    titulo: "Portafolio RicardoDev",
+    tipo: "Frontend",
+    descripcion:
+      "Sitio personal enfocado en rendimiento, animaciones suaves y una presentación clara de experiencia y proyectos.",
+    tecnologias: [
+      { label: "React", icon: "⚛️" },
+      { label: "TypeScript", icon: "🟦" },
+      { label: "Tailwind CSS", icon: "🎨" },
+    ],
+    demoUrl: "#",
+    codeUrl: "#",
+  },
+  {
+    id: "termolaminado",
+    titulo: "Termolaminado Chile",
+    tipo: "Landing comercial",
+    descripcion:
+      "Landing page para negocio de impresión y termolaminado, con foco en servicios, contacto directo y generación de leads.",
+    tecnologias: [
+      { label: "React", icon: "⚛️" },
+      { label: "Tailwind CSS", icon: "🎨" },
+    ],
+    demoUrl: "#",
+    codeUrl: "#",
+  },
+  {
+    id: "shellfish",
+    titulo: "Shell&Fish Export",
+    tipo: "B2B / Comercial",
+    descripcion:
+      "Sitio comercial para empresa exportadora de productos del mar, orientado a hoteles, restaurantes y distribuidores.",
+    tecnologias: [
+      { label: "React", icon: "⚛️" },
+      { label: "Tailwind CSS", icon: "🎨" },
+    ],
+    demoUrl: "#",
+    codeUrl: "#",
+  },
+];
+---
+
+<Layout title="Proyectos">
+  <main class="min-h-screen pb-16">
+    <!-- Volver al home -->
+    <div class="max-w-6xl mx-auto px-4 pt-6">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white/90 transition-colors"
+      >
+        <span aria-hidden="true">←</span>
+        <span>Volver al inicio</span>
+      </a>
+    </div>
+
+    <!-- Hero: título un poco más pequeño -->
+    <section class="max-w-6xl mx-auto px-4 pt-6 md:pt-8 pb-6 md:pb-8">
+      <h1 class="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-3">
+        <span class="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
+          Todos mis proyectos
+        </span>
+      </h1>
+      <p class="text-sm md:text-base text-white/70 max-w-2xl">
+        Descubre algunos de mis proyectos destacados y otras soluciones en las
+        que he trabajado, combinando backend, frontend y buenas prácticas para
+        crear productos reales de principio a fin.
+      </p>
+    </section>
+
+    <!-- Proyectos destacados (con estrella y cards como las del home) -->
+    <section class="max-w-6xl mx-auto px-4">
+      <h2 class="text-base md:text-lg font-semibold text-white mb-4 md:mb-5">
+        Proyectos destacados
+      </h2>
+
+      <div class="grid gap-6 md:gap-7 lg:grid-cols-3">
+        {FEATURED_PROJECTS.map((project) => (
+          <article class="relative group">
+            <!-- Estrella -->
+            <div
+              class="pointer-events-none absolute -top-3 -right-4 z-20
+                     drop-shadow-[0_0_12px_rgba(56,189,248,0.8)]
+                     transform transition-transform duration-200
+                     group-hover:scale-[1.02] group-hover:-translate-y-2"
+            >
+              <span class="text-3xl" aria-hidden="true">
+                ⭐
+              </span>
+            </div>
+
+            <!-- Card -->
+            <div
+              class="relative z-10 flex flex-col rounded-3xl bg-black/40 border border-white/10
+                         shadow-xl shadow-black/40 overflow-hidden backdrop-blur-sm
+                         transform transition-transform duration-200 ease-out
+                         group-hover:-translate-y-2 group-hover:scale-[1.02] group-hover:shadow-sky-500/40"
+            >
+              <!-- Parte superior con degradado / iconito -->
+              <div
+                class="h-28 md:h-32 bg-gradient-to-br from-sky-500/50 via-blue-500/40 to-purple-500/50
+                       flex items-center justify-center"
+              >
+                <div class="flex flex-col items-center gap-1">
+                  <span class="text-3xl" aria-hidden="true">
+                    🧩
+                  </span>
+                  <span
+                    class="text-[11px] md:text-xs px-2 py-0.5 rounded-full bg-black/35 border border-white/10 text-white/80"
+                  >
+                    {project.tipo}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Contenido -->
+              <div class="flex flex-1 flex-col px-5 pt-4 pb-5 md:px-6 md:pb-6">
+                <h3 class="text-sm md:text-base font-semibold text-white mb-2">
+                  {project.titulo}
+                </h3>
+
+                <p
+                  class="text-xs md:text-sm text-white/80 leading-relaxed mb-4 flex-1"
+                >
+                  {project.descripcion}
+                </p>
+
+                <!-- Tecnologías (igual que en home) -->
+                <div class="mb-4 flex flex-wrap items-center gap-2">
+                  {project.tecnologias.map((tech) => (
+                    <span
+                      title={tech.label}
+                      class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-black/40 border border-white/15 text-sm"
+                    >
+                      <span aria-hidden="true">{tech.icon}</span>
+                      <span class="sr-only">{tech.label}</span>
+                    </span>
+                  ))}
+                </div>
+
+                <!-- Botones -->
+                <div class="flex flex-wrap gap-2">
+                  {project.demoUrl && (
+                    <a
+                      href={project.demoUrl}
+                      class="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl
+                             bg-gradient-to-tr from-sky-500 to-blue-600 text-xs md:text-sm font-semibold text-white
+                             px-3 py-2 shadow-lg shadow-sky-500/40
+                             hover:translate-y-0.5 transition-transform duration-200"
+                    >
+                      <span aria-hidden="true">🔗</span>
+                      <span>Ver demo</span>
+                    </a>
+                  )}
+
+                  {project.codeUrl && (
+                    <a
+                      href={project.codeUrl}
+                      class="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl
+                             border border-white/15 bg-white/5 text-xs md:text-sm font-semibold
+                             text-white px-3 py-2 hover:bg-white/10 transition-colors"
+                    >
+                      <span aria-hidden="true" class="flex items-center">
+                        {"</>"}
+                      </span>
+                      <span>Ver código</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Otros proyectos (mismas cards pero SIN estrella) -->
+    <section class="max-w-6xl mx-auto px-4 mt-10 md:mt-12">
+      <h2 class="text-base md:text-lg font-semibold text-white mb-4 md:mb-5">
+        Otros proyectos
+      </h2>
+
+      <div class="grid gap-6 md:gap-7 lg:grid-cols-3">
+        {OTHER_PROJECTS.map((project) => (
+          <article
+            class="relative group flex flex-col rounded-3xl bg-black/40 border border-white/10
+                   shadow-xl shadow-black/40 overflow-hidden backdrop-blur-sm
+                   transform transition-transform duration-200 ease-out
+                   group-hover:-translate-y-2 group-hover:scale-[1.02] group-hover:shadow-sky-500/30"
+          >
+            <!-- Parte superior con degradado -->
+            <div
+              class="h-28 md:h-32 bg-gradient-to-br from-sky-500/40 via-blue-500/35 to-purple-500/45
+                     flex items-center justify-center"
+            >
+              <div class="flex flex-col items-center gap-1">
+                <span class="text-3xl" aria-hidden="true">
+                  🧩
+                </span>
+                <span
+                  class="text-[11px] md:text-xs px-2 py-0.5 rounded-full bg-black/35 border border-white/10 text-white/80"
+                >
+                  {project.tipo}
+                </span>
+              </div>
+            </div>
+
+            <!-- Contenido -->
+            <div class="flex flex-1 flex-col px-5 pt-4 pb-5 md:px-6 md:pb-6">
+              <h3 class="text-sm md:text-base font-semibold text-white mb-2">
+                {project.titulo}
+              </h3>
+
+              <p
+                class="text-xs md:text-sm text-white/80 leading-relaxed mb-4 flex-1"
+              >
+                {project.descripcion}
+              </p>
+
+              <!-- Tecnologías -->
+              <div class="mb-4 flex flex-wrap items-center gap-2">
+                {project.tecnologias.map((tech) => (
+                  <span
+                    title={tech.label}
+                    class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-black/40 border border-white/15 text-sm"
+                  >
+                    <span aria-hidden="true">{tech.icon}</span>
+                    <span class="sr-only">{tech.label}</span>
+                  </span>
+                ))}
+              </div>
+
+              <!-- Botones (puedes dejar uno solo si quieres) -->
+              <div class="flex flex-wrap gap-2">
+                {project.demoUrl && (
+                  <a
+                    href={project.demoUrl}
+                    class="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl
+                           bg-gradient-to-tr from-sky-500 to-blue-600 text-xs md:text-sm font-semibold text-white
+                           px-3 py-2 shadow-lg shadow-sky-500/40
+                           hover:translate-y-0.5 transition-transform duration-200"
+                  >
+                    <span aria-hidden="true">🔗</span>
+                    <span>Ver demo</span>
+                  </a>
+                )}
+
+                {project.codeUrl && (
+                  <a
+                    href={project.codeUrl}
+                    class="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl
+                           border border-white/15 bg-white/5 text-xs md:text-sm font-semibold
+                           text-white px-3 py-2 hover:bg_WHITE/10 transition-colors"
+                  >
+                    <span aria-hidden="true" class="flex items-center">
+                      {"</>"}
+                    </span>
+                    <span>Ver código</span>
+                  </a>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>

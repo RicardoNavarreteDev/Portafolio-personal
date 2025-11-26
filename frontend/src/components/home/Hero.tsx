@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 const Hero: FC = () => {
   // Solo animamos esta parte (después de "Hola 👋")
-  const fullText = ' soy Ricardo Navarrete';
+  const fullText = ' Soy Ricardo Navarrete';
   const [animatedText, setAnimatedText] = useState('');
 
   useEffect(() => {

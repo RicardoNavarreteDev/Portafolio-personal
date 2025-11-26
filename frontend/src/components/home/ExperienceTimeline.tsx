@@ -141,7 +141,7 @@ const ExperienceTimeline: FC = () => {
               Experiencia
             </span>
           </h2>
-          <p className="text-sm md:text-base text-white/70 max-w-2xl mx-auto">
+          <p className="text-sm md:text-base text-slate-300/80 max-w-2xl mx-auto">
             Una vista rápida de dónde he estado trabajando y qué tipo de
             proyectos he construido en los últimos años.
           </p>

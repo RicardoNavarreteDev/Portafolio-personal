@@ -1,0 +1,113 @@
+/* ========================================
+   CARDS ANIMATION
+   ======================================== */
+
+.cards-animation-root {
+  width: 100%;
+  padding-block: 0;       /* sin padding arriba/abajo */
+  position: relative;
+  margin-top: -13.5rem;    /* 👈 NEGATIVO: pega las cards al título (DESKTOP) */
+  margin-bottom: -13.5rem;
+}
+
+.cards-animation-root section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: none;
+  min-height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* ya no hace falta espacio arriba */
+.cards-animation-root .spacer-top {
+  display: none;
+}
+
+/* un poco de espacio antes del botón de abajo */
+.cards-animation-root .spacer-bottom {
+  height: 1.5rem;
+  min-height: 1.5rem;
+}
+
+/* Contenedor sticky (solo se usa en desktop) */
+.cards-animation-root .sticky-container {
+  align-items: flex-start;
+  height: 350lvh;
+}
+
+.cards-animation-root .sticky-content {
+  perspective: 1000px;
+  perspective-origin: 50%;
+  transform-style: preserve-3d;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100lvh;
+  width: 100%;
+}
+
+.cards-animation-root .stack {
+  --w: 320px;
+  --h: 380px;
+  position: relative;
+  flex-grow: 0;
+  flex-shrink: 0;
+  transform-style: preserve-3d;
+  width: var(--w);
+  height: var(--h);
+  will-change: transform;
+}
+
+.cards-animation-root .card {
+  transform-style: preserve-3d;
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+}
+
+.cards-animation-root .star-wrapper {
+  position: absolute;
+  transform-style: flat;
+}
+
+.cards-animation-root .card > div {
+  transform-style: preserve-3d;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.cards-animation-root .back {
+  z-index: 0;
+  transform: rotateY(180deg);
+  background: radial-gradient(circle at top, #1e293b 0%, #020617 60%);
+  backface-visibility: hidden;
+}
+
+.cards-animation-root .front {
+  z-index: 1;
+  backface-visibility: hidden;
+}
+
+/* ====== RESPONSIVE ====== */
+
+/* Mobile / tablet: SIN márgenes negativos, layout limpio */
+@media (max-width: 1024px) {
+  .cards-animation-root {
+    margin-top: 1.5rem;   /* o 0 si lo quieres pegado al título */
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Ajuste opcional para muy pequeñas */
+@media (max-width: 768px) {
+  .cards-animation-root .stack {
+    --w: 280px;
+    --h: 340px;
+  }
+}

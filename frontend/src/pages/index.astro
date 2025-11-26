@@ -5,11 +5,16 @@ import AboutMe from '../components/home/AboutMe';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ExperienceTimeline from '../components/home/ExperienceTimeline';
 import FeaturedProjects from '../components/home/FeaturedProjects';
+import EducationSection from '../components/home/Education';
+import ContactSection from '../components/home/ContactForm';
+import CardsAnimation from '../components/ui/CardsAnimation';
 ---
 
 <BaseLayout title="Portafolio | Ricardo Navarrete">
   <Hero client:visible />
+  <FeaturedProjects client:visible />
   <AboutMe client:visible />
   <ExperienceTimeline client:visible />
-  <FeaturedProjects client:visible />
+  <EducationSection client:visible />
+  <ContactSection client:visible />
 </BaseLayout>

@@ -70,19 +70,26 @@ const ExperienceCard: FC<{ item: ExperienceItem; invertida?: boolean }> = ({
 
       {/* Tarjeta */}
       <div
-        className="rounded-3xl bg-black/35 border border-white/10
+        className="rounded-3xl
+                   bg-black/35
+                   border border-cyan-400/20
                    px-5 py-4 md:px-6 md:py-5
                    shadow-xl shadow-black/40 backdrop-blur-sm
                    transition-transform duration-200 ease-out
                    hover:-translate-y-1 hover:scale-[1.02]"
       >
-        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-          <h3 className="text-sm md:text-base font-semibold text-white">
+        <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
+          <h3 className="text-base md:text-lg font-semibold text-slate-50 leading-snug">
             {item.cargo}
           </h3>
-          <div className="text-[11px] md:text-xs text-white/60">
+          {/* Período como chip, similar a Educación */}
+          <span
+            className="inline-flex px-3 py-1 text-[11px] md:text-xs font-semibold
+                       rounded-full bg-slate-900/80 text-slate-100
+                       border border-slate-600/60"
+          >
             {item.periodo}
-          </div>
+          </span>
         </div>
 
         <div className="flex flex-wrap items-center gap-2 mb-2 text-xs md:text-sm text-white/75">
@@ -91,16 +98,16 @@ const ExperienceCard: FC<{ item: ExperienceItem; invertida?: boolean }> = ({
               href={item.empresaUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1 text-sky-400 hover:text-sky-300"
+              className="inline-flex items-center gap-1 text-cyan-300 hover:text-cyan-200"
             >
               <span className="underline">{item.empresa}</span>
               <span aria-hidden="true">↗</span>
             </a>
           ) : (
-            <span className="text-sky-400">{item.empresa}</span>
+            <span className="text-cyan-300">{item.empresa}</span>
           )}
-          <span className="text-white/40">•</span>
-          <span>{item.ubicacion}</span>
+          <span className="text-white/30">•</span>
+          <span className="text-white/70">{item.ubicacion}</span>
         </div>
 
         <p className="text-xs md:text-sm text-white/80 leading-relaxed mb-3">
@@ -115,7 +122,7 @@ const ExperienceCard: FC<{ item: ExperienceItem; invertida?: boolean }> = ({
             <ul className="space-y-1.5 text-[11px] md:text-xs text-white/80">
               {item.logros.map((logro) => (
                 <li key={logro} className="flex gap-2">
-                  <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-sky-400" />
+                  <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-cyan-300" />
                   <span>{logro}</span>
                 </li>
               ))}
@@ -131,12 +138,12 @@ const ExperienceTimeline: FC = () => {
   return (
     <section
       id="work"
-      className="pt-10 md:pt-14 lg:pt-30 pb-12 md:pb-16 lg:pb-20"
+      className="pt-10 md:pt-14 lg:pt-36 pb-12 md:pb-16 lg:pb-20"
     >
       <div className="max-w-5xl mx-auto px-4">
         {/* Título */}
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight text-white mb-2">
+          <h2 className="text-4xl md:text-4xl font-extrabold tracking-tight text-white mb-3">
             <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
               Experiencia
             </span>

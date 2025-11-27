@@ -11,7 +11,7 @@ const FeaturedProjects: FC = () => {
       {/* Título + texto */}
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white mb-3">
+          <h2 className="text-4xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white mb-3">
             <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
               Proyectos destacados
             </span>

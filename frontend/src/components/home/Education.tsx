@@ -68,7 +68,7 @@ const EducationSection: React.FC = () => {
     <section id="educacion" className="py-20 px-4 md:px-6 lg:px-10">
       <div className="max-w-6xl mx-auto text-center mb-12">
         <h2
-          className="text-2xl md:text-4xl font-extrabold tracking-tight text-white mb-2"
+          className="text-4xl md:text-4xl font-extrabold tracking-tight text-white mb-2"
         >
             <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
                 Educación &amp; Certificaciones

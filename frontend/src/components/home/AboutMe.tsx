@@ -9,7 +9,7 @@ const AboutMe: FC = () => {
       <div className="max-w-5xl mx-auto px-4">
         {/* Título sección */}
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight text-white mb-2">
+          <h2 className="text-4xl md:text-4xl font-extrabold tracking-tight text-white mb-2">
             <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
               Sobre mí
             </span>
